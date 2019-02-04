@@ -36,3 +36,6 @@ bld/
 # NUNIT
 *.VisualState.xml
 TestResult.xml
+
+#JS
+node_modules/
