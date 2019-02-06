@@ -39,3 +39,4 @@ TestResult.xml
 
 #JS
 node_modules/
+dist/

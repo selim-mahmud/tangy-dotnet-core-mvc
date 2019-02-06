@@ -2,9 +2,14 @@
   "name": "tangy",
   "version": "1.0.0",
   "description": "ecommerce site",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "webpack": "webpack",
+    "debug": "node --inspect --inspect-brk ./node_modules/webpack/bin/webpack.js",
+    "dev": "npm run webpack -- --env.mode development --watch",
+    "prod": "npm run webpack -- --env.mode production",
+    "dev:debug": "npm run debug -- --env.mode development",
+    "prod:debug": "npm run debug -- --env.mode production"
   },
   "repository": {
     "type": "git",
@@ -21,20 +26,24 @@
     "@babel/preset-env": "^7.0.0-beta.46",
     "babel-loader": "^8.0.0-beta",
     "css-loader": "^0.28.11",
+    "extract-loader": "^3.1.0",
     "file-loader": "^1.1.11",
     "fork-ts-checker-webpack-plugin": "^0.4.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.11.1",
     "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.11.0",
     "postcss-loader": "^2.1.5",
+    "sass-loader": "^7.1.0",
     "style-loader": "^0.21.0",
     "ts-loader": "^4.2.0",
     "url-loader": "^1.0.1",
-    "webpack": "^4.8.0",
+    "webpack": "^4.29.1",
     "webpack-bundle-analyzer": "^2.11.1",
     "webpack-cli": "^3.1.2",
     "webpack-node-externals": "^1.7.2",
     "workbox-webpack-plugin": "^3.2.0"
-  }
+  },
+  "dependencies": {}
 }
