@@ -1,35 +1,48 @@
 const path = require('path');
-const Webpack = require("webpack");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Merge = require("webpack-merge");
+const ModeConfig = (env) => require(`./build-utils/webpack/webpack.config.${env.mode}.js`)(env);
 
-module.exports = env => {
-    return {
-        mode: env.mode,
+module.exports = (env = {mode: "production"}) => {
+    return Merge(
+        ModeConfig(env), 
+        {
         entry: ['./src/js/index.js', './src/sass/index.scss'],
         output: {
             filename: "bundle.js",
             path: path.resolve(__dirname, 'wwwroot/dist')
         },
         module: {
-            rules: [{
-                test: /\.scss$/,
-                use: [
-                    {
-                        loader: 'file-loader', options: {name: 'bundle.css'}
-                    },
-                    {
-                        loader: 'extract-loader'
-                    },
-                    {
-                        loader: "css-loader", options: { sourceMap: true}
-                    },
-                    {
-                        loader: "sass-loader"
-                    }
-                ]
-            }]
+            rules: [
+                {
+                    test: /\.(png|svg|jpg|gif)$/,
+                    use: [
+                        "file-loader"
+                    ]
+                },
+                {
+                    test: /\.(woff|woff2|eot|ttf|otf)$/,
+                    use: [
+                        "file-loader"
+                    ]
+                },
+                { test: /\.html$/, loader: "html-loader" }
+        ]
         },
         plugins: [
-            new Webpack.ProgressPlugin()
-        ]
-    };
+            new HtmlWebpackPlugin(
+                {
+                    filename: '../../Views/Shared/_Layout.cshtml',
+                    template: "./Views/Shared/_Layout_Template.cshtml",
+                    hash: true
+                }
+            ),
+            new MiniCssExtractPlugin({
+                filename: "bundle.css"
+              })
+        ],
+        stats: { colors: true }
+    });
 };

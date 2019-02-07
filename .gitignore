@@ -39,4 +39,5 @@ TestResult.xml
 
 #JS
 node_modules/
-dist/
+wwwroot/dist/
+/Views/Shared/_Layout.cshtml
