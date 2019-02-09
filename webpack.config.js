@@ -11,7 +11,7 @@ module.exports = (env = {mode: "production"}) => {
         {
         entry: ['./src/js/index.js', './src/sass/index.scss'],
         output: {
-            filename: "bundle.js",
+            filename: "[chunkhash].js",
             path: path.resolve(__dirname, 'wwwroot/dist'),
             publicPath: '/dist/'
         },
@@ -37,11 +37,11 @@ module.exports = (env = {mode: "production"}) => {
                 {
                     filename: '../../Views/Shared/_Layout.cshtml',
                     template: "./Views/Shared/_Layout_Template.cshtml",
-                    hash: true,
+                    cache: true,
                 }
             ),
             new MiniCssExtractPlugin({
-                filename: "bundle.css"
+                filename: "[chunkhash].css"
               })
         ],
         stats: { colors: true }
