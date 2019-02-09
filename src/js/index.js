@@ -1,4 +1,8 @@
-import nav from "./nav";
-import {top1, bottom} from "./footer"
-console.log(nav);
-console.log(top1);
+require('./vendors');
+require('./custom');
+
+$(document).ready(function() {
+
+    console.log('jQuery works.');
+
+});

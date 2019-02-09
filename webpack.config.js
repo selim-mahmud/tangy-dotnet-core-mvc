@@ -12,7 +12,8 @@ module.exports = (env = {mode: "production"}) => {
         entry: ['./src/js/index.js', './src/sass/index.scss'],
         output: {
             filename: "bundle.js",
-            path: path.resolve(__dirname, 'wwwroot/dist')
+            path: path.resolve(__dirname, 'dist'),
+            publicPath: "wwwroot/"
         },
         module: {
             rules: [
@@ -34,9 +35,10 @@ module.exports = (env = {mode: "production"}) => {
         plugins: [
             new HtmlWebpackPlugin(
                 {
-                    filename: '../../Views/Shared/_Layout.cshtml',
+                    filename: '../Views/Shared/_Layout.cshtml',
                     template: "./Views/Shared/_Layout_Template.cshtml",
-                    hash: true
+                    hash: true,
+                    cache: true
                 }
             ),
             new MiniCssExtractPlugin({
