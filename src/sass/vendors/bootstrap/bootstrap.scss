@@ -1,8 +1,7 @@
-@import "./variables.scss";
-
 // Required
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
+@import "./variables.scss"; //to override bootstrap variable
 @import "node_modules/bootstrap/scss/mixins";
 
 // Optional

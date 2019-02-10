@@ -1,0 +1,12 @@
+@import "./variables.scss";
+
+@import "./global.scss";
+
+//load components sass
+@import "./components/header.scss";
+@import "./components/footer.scss";
+
+//load pages sass
+@import "./pages/home.scss";
+@import "./pages/contact.scss";
+@import "./pages/about.scss";
