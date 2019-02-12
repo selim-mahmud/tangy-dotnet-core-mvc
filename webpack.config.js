@@ -18,9 +18,8 @@ module.exports = (env = {mode: "production"}) => {
         module: {
             rules: [
                 {test: /\.scss$/, use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]},
-                {test: /\.(png|svg|jpg|gif)$/, use: ["file-loader"]},
-                {test: /\.(woff|woff2|eot|ttf|otf)$/, use: ["file-loader"]},
-                { test: /\.html$/, loader: "html-loader" }
+                {test: /\.(png|svg|jpg|gif|svg|woff|woff2|eot|ttf|otf)$/, use: ["file-loader"]},
+                { test: /\.html$/, use: ["html-loader"] }
         ]
         },
         plugins: [
