@@ -1,0 +1,7 @@
+@model int
+
+<div class="btn-group" role="group">
+    <a type="button" class="btn btn-primary" href="@Url.Action("Details/"+Model)"><i class="fa fa-list-alt"></i></a>
+    <a type="button" class="btn btn-primary" href="@Url.Action("Edit/"+Model)"><i class="fa fa-edit"></i></a>
+    <a type="button" class="btn btn-primary" href="@Url.Action("Delete/"+Model)"><i class="fa fa-trash-alt"></i></a>
+</div>
